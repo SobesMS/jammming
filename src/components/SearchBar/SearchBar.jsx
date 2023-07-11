@@ -9,12 +9,12 @@ function SearchBar() {
     }
 
     return (
-        <div>
+        <>
             <form>
                 <input type="text" name="spotifySearch" placeholder="song name, artist, or album title" />
                 <button type="button" onClick={handleSearch}>Search</button>
             </form>
-        </div>
+        </>
     )
 }
 
