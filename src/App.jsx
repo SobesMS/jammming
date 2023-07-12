@@ -1,23 +1,28 @@
 import { useState } from 'react';
+import SearchBar from './components/SearchBar';
+import SearchResults from './components/SearchResults';
+import Playlist from './components/Playlist';
+import Track from './components/Track';
 import './App.css';
-import SearchBar from './components/SearchBar/SearchBar';
-import SearchResults from './components/SearchResults/SearchResults';
-import Playlist from './components/Playlist/Playlist';
 
-function App() {
+export default function App() {
+  const [searchResults, setSearchResults] = useState([]);
+  const [playlist, setPlaylist] = useState([]);
+
+  const addToPlaylist = id => {
+
+  }
 
   return (
     <>
       <h1>Jammming</h1>
-      <div className="card">
-        <SearchBar />
+      <div className='searchBar'>
+        <SearchBar setSearchResults={setSearchResults} setPlaylist={setPlaylist} />
       </div>
-      <div>
-        <SearchResults />
-        <Playlist />
+      <div className='tracklists'>
+        <SearchResults searchResults={searchResults} />
+        <Playlist playlist={playlist} />
       </div>
     </>
-  )
+  );
 }
-
-export default App;
