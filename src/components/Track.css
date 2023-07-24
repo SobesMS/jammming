@@ -1,0 +1,28 @@
+.track {
+    margin: 10px;
+    padding: 10px;
+    background-color: #aeecc3;
+    border-radius: 17px;
+    display: grid;
+}
+
+.searchResults, .playlist {
+    grid-template: auto auto / auto 2rem;
+}
+
+.songInfo {
+    margin-right: 10px;
+    overflow: hidden;
+}
+
+.songInfo p {
+    color: #020202;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.songInfo :nth-child(1) {
+    font-size: 1.3rem;
+    font-weight: bold;
+}

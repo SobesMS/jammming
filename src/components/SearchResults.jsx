@@ -1,19 +1,10 @@
-import Track from './Track';
-import './SearchResults.css';
+import './SearchResults-Playlist.css';
 
-export default function SearchResults({ searchResults }) {
-    const createTracklist = songArr => {
-        let tracklist = [];
-        for (let i = 0; i < songArr.length; i++) {
-          const song = songArr[i];
-          tracklist.push(<Track key={song.id} songName={song.songName} artist={song.artist} album={song.album} isSearchResults={true} />)
-        }
-        return tracklist;
-      }
-
+export default function SearchResults({ tracklist }) {
     return (
-        <div>
-            <ul>{createTracklist(searchResults)}</ul>
+        <div className='tracklist'>
+            <h3>Search Results</h3>
+            <ul>{tracklist}</ul>
         </div>
     );
 }

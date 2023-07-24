@@ -1,0 +1,29 @@
+.tracklist {
+    min-height: 300px;
+    height: fit-content;
+    max-height: 700px;
+    overflow-y: auto;
+    background-color: #1db954;
+    border-radius: 20px;
+}
+
+@media (max-width: 800px) {
+    .tracklist {
+        max-height: 500px;
+    }
+}
+
+.playlistButtons {
+    text-align: center;
+}
+
+.playlistButtons button {
+    color: #fff;
+    background-color: #0a550a;
+    font-size: 0.7em;
+    font-weight: 600;
+    margin: 0 7px;
+    padding: 2px 5px;
+    border-radius: 7px;
+    cursor: pointer;
+}

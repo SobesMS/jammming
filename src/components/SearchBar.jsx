@@ -1,25 +1,33 @@
 import { useState } from "react";
+import { testSongList } from "../utils/testData";
 import './SearchBar.css';
 
 export default function SearchBar({ setSearchResults }) {
-    const tempSpotifyList = [
-        {id: 1, songName: "I Was Wrong", artist: "Social Distortion", album: "White Light, White Heat, White Trash"},
-        {id: 2, songName: "Look What Happened", artist: "Less Than Jake", album: "Borders & Boundries"},
-        {id: 3, songName: "Evenflow", artist: "Pearl Jam", album: "Ten"}
-    ];
-
     const [searchString, setSearchString] = useState("");
+    const [isSearchEmpty, setIsSearchEmpty] = useState(true);
 
     const spotifySearch = e => {
         e.preventDefault();
-        setSearchResults(tempSpotifyList);
+        if (searchString !== "") {
+            // TODO - need to build spotify search
+            setSearchResults(testSongList);
+            setIsSearchEmpty(false);
+        } 
     };
+
+    const clearSearch = () => {
+        document.getElementById("searchInput").value = "";
+        setSearchString("");
+        setSearchResults([]);
+        setIsSearchEmpty(true);
+    }
 
     return (
         <>
             <form onSubmit={spotifySearch}>
-                <input type="text" name="searchInput" value={searchString} onChange={e => setSearchString(e.target.value)} placeholder="enter a song, artist, or album" />
-                <button type="submit">Search</button>
+                <input type="text" id="searchInput" name="searchInput" place={searchString} onChange={e => setSearchString(e.target.value)} placeholder="enter a song, artist, or album" />
+                <button className="search" type="submit">Search Spotify</button>
+                {isSearchEmpty == false ? <button className="clear" type="button" onClick={clearSearch}>Clear Search</button> : null}
             </form>
         </>
     );
